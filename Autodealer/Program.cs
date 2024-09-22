@@ -1,5 +1,6 @@
 // Подбор автомобилей
 
+using Autodealer;
 using Autodealer.Services;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -11,7 +12,8 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddScoped<IAutoService, AutoService>();
+builder.Services.AddSingleton<MongoDbService>();
+builder.Services.AddScoped<ICarService, CarService>();
 
 var app = builder.Build();
 

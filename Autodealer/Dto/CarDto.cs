@@ -1,6 +1,6 @@
 namespace Autodealer.Dto;
 
-public class AutoDto
+public class CarDto
 {
     /// <summary>
     /// Марка.

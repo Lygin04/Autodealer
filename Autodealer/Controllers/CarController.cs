@@ -1,26 +1,26 @@
-using Microsoft.AspNetCore.Mvc;
 using Autodealer.Dto;
 using Autodealer.Model;
 using Autodealer.Services;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Autodealer.Controllers;
 
 [Route("[controller]")]
 [ApiController]
-public class AutoController(IAutoService autoService) : ControllerBase
+public class CarController(ICarService carService) : ControllerBase
 {
-    [HttpGet]
-    public IActionResult GetAll()
+    [HttpGet("/Cars")]
+    public async Task<IEnumerable<Car>> GetAll()
     {
-        return Ok(autoService.GetAll());
+        return await carService.GetAll();
     }
 
     [HttpGet("{id}")]
-    public IActionResult GetById(int id)
+    public IActionResult GetById(string id)
     {
         try
         {
-            var auto = autoService.GetById(id);
+            var auto = carService.GetById(id);
             return Ok(auto);
         }
         catch
@@ -29,19 +29,19 @@ public class AutoController(IAutoService autoService) : ControllerBase
         }
     }
 
-    [HttpPost("create")]
-    public IActionResult Create(AutoDto auto)
+    [HttpPost]
+    public async Task<IActionResult> Create(CarDto car)
     {
-        Auto createdAuto = autoService.Create(auto);
+        var createdAuto = await carService.Create(car);
         return CreatedAtAction(nameof(GetById), new { id = createdAuto.Id }, createdAuto);
     }
 
-    [HttpPut("update")]
-    public IActionResult Update(Auto auto)
+    [HttpPut]
+    public async Task<IActionResult> Update(Car car)
     {
         try
         {
-            autoService.Update(auto);
+            await carService.Update(car);
         }
         catch
         {
@@ -50,12 +50,12 @@ public class AutoController(IAutoService autoService) : ControllerBase
         return Ok();
     }
 
-    [HttpDelete("delete/{id}")]
-    public IActionResult Delete(int id)
+    [HttpDelete("{id}")]
+    public async Task<IActionResult> Delete(string id)
     {
         try
         {
-            autoService.Delete(id);
+            await carService.Delete(id);
         }
         catch
         {
