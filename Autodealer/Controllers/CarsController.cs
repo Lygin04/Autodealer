@@ -1,18 +1,37 @@
 using Autodealer.Dto;
 using Autodealer.Model;
 using Autodealer.Services;
+using Autodealer.Services.Caching;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Autodealer.Controllers;
 
 [Route("[controller]")]
 [ApiController]
-public class CarController(ICarService carService) : ControllerBase
+public class CarsController(ICarService carService, IRedisCacheService cache) : ControllerBase
 {
-    [HttpGet("/Cars")]
-    public async Task<IEnumerable<Car>> GetAll()
+    [HttpGet]
+    public async Task<IEnumerable<Car>?> GetAll()
     {
-        return await carService.GetAll();
+        try
+        {
+            var userId = Request.Headers["UserId"];
+
+            var cachingKey = $"cars_{userId}";
+            var cars = cache.GetData<IEnumerable<Car>>(cachingKey);
+            if (cars is null)
+            {
+                cars = await carService.GetAll();
+                cache.SetData(cachingKey, cars);
+            }
+
+            return cars;
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine(ex.Message);
+            return null;
+        }
     }
 
     [HttpGet("{id}")]
@@ -20,8 +39,15 @@ public class CarController(ICarService carService) : ControllerBase
     {
         try
         {
-            var auto = carService.GetById(id);
-            return Ok(auto);
+            const string key = "carsById";
+            var car = cache.GetData<Car>(key);
+            if (car is null)
+            {
+                car = carService.GetById(id);
+                cache.SetData(key, car);
+            }
+
+            return Ok(car);
         }
         catch
         {

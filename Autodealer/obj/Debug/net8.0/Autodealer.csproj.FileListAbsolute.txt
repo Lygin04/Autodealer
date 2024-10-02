@@ -44,3 +44,10 @@ D:\Институт\2 курс\2 семестр\ООП Курсач\RestApi\Auto
 D:\Институт\2 курс\2 семестр\ООП Курсач\RestApi\Autodealer\bin\Debug\net8.0\runtimes\linux\native\libmongocrypt.so
 D:\Институт\2 курс\2 семестр\ООП Курсач\RestApi\Autodealer\bin\Debug\net8.0\runtimes\osx\native\libmongocrypt.dylib
 D:\Институт\2 курс\2 семестр\ООП Курсач\RestApi\Autodealer\bin\Debug\net8.0\runtimes\win\native\mongocrypt.dll
+D:\Институт\2 курс\2 семестр\ООП Курсач\RestApi\Autodealer\obj\Debug\net8.0\Autodealer.sourcelink.json
+D:\Институт\2 курс\2 семестр\ООП Курсач\RestApi\Autodealer\bin\Debug\net8.0\Microsoft.Extensions.Caching.StackExchangeRedis.dll
+D:\Институт\2 курс\2 семестр\ООП Курсач\RestApi\Autodealer\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+D:\Институт\2 курс\2 семестр\ООП Курсач\RestApi\Autodealer\bin\Debug\net8.0\Microsoft.Extensions.Logging.Abstractions.dll
+D:\Институт\2 курс\2 семестр\ООП Курсач\RestApi\Autodealer\bin\Debug\net8.0\Microsoft.Extensions.Options.dll
+D:\Институт\2 курс\2 семестр\ООП Курсач\RestApi\Autodealer\bin\Debug\net8.0\Pipelines.Sockets.Unofficial.dll
+D:\Институт\2 курс\2 семестр\ООП Курсач\RestApi\Autodealer\bin\Debug\net8.0\StackExchange.Redis.dll

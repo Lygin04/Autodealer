@@ -125,3 +125,10 @@ D:\Институт\2 курс\2 семестр\ООП Курсач\RestApi\Auto
 D:\Институт\2 курс\2 семестр\ООП Курсач\RestApi\AutodealerTests\obj\Debug\net8.0\AutodealerTests.pdb
 D:\Институт\2 курс\2 семестр\ООП Курсач\RestApi\AutodealerTests\obj\Debug\net8.0\AutodealerTests.genruntimeconfig.cache
 D:\Институт\2 курс\2 семестр\ООП Курсач\RestApi\AutodealerTests\obj\Debug\net8.0\ref\AutodealerTests.dll
+D:\Институт\2 курс\2 семестр\ООП Курсач\RestApi\AutodealerTests\obj\Debug\net8.0\AutodealerTests.sourcelink.json
+D:\Институт\2 курс\2 семестр\ООП Курсач\RestApi\AutodealerTests\bin\Debug\net8.0\Microsoft.Extensions.Caching.StackExchangeRedis.dll
+D:\Институт\2 курс\2 семестр\ООП Курсач\RestApi\AutodealerTests\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+D:\Институт\2 курс\2 семестр\ООП Курсач\RestApi\AutodealerTests\bin\Debug\net8.0\Microsoft.Extensions.Logging.Abstractions.dll
+D:\Институт\2 курс\2 семестр\ООП Курсач\RestApi\AutodealerTests\bin\Debug\net8.0\Microsoft.Extensions.Options.dll
+D:\Институт\2 курс\2 семестр\ООП Курсач\RestApi\AutodealerTests\bin\Debug\net8.0\Pipelines.Sockets.Unofficial.dll
+D:\Институт\2 курс\2 семестр\ООП Курсач\RestApi\AutodealerTests\bin\Debug\net8.0\StackExchange.Redis.dll

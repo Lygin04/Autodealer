@@ -15,7 +15,7 @@ public class CarService : ICarService
         _cars = mongoDbService.Database.GetCollection<Car>("car");
     }
 
-    public async Task<IEnumerable<Car>> GetAll()
+    public async Task<IEnumerable<Car>?> GetAll()
     {
         return await _cars.Find(FilterDefinition<Car>.Empty).ToListAsync();
     }

@@ -1,30 +1,33 @@
-using Autodealer;
 using Autodealer.Controllers;
 using Autodealer.Dto;
 using Autodealer.Model;
 using Autodealer.Services;
+using Autodealer.Services.Caching;
 using Microsoft.AspNetCore.Mvc;
 using Moq;
 
 namespace AutodealerTests;
 
-public class CarControllerTest
+public class CarsControllerTest
 {
     private readonly Mock<ICarService> _carServiceMock;
-    private readonly CarController _controller;
+    private readonly Mock<IRedisCacheService> _cache;
+    private readonly CarsController _controller;
 
-    public CarControllerTest()
+    public CarsControllerTest()
     {
         _carServiceMock = new Mock<ICarService>();
-        _controller = new CarController(_carServiceMock.Object);
+        _cache = new Mock<IRedisCacheService>();
+        _controller = new CarsController(_carServiceMock.Object, _cache.Object);
     }
 
     [Fact]
     public async Task Create100Cars()
     {
         var cars = new List<CarDto>();
+        const int countCars = 100;
 
-        for (int i = 0; i < 100; i++)
+        for (int i = 0; i < countCars; i++)
         {
             cars.Add(new CarDto {Brand = $"Lada{i}", Model = "Granta", Generation = i.ToString(), Engine = "1.4"});
         }
@@ -40,15 +43,16 @@ public class CarControllerTest
             Assert.IsType<CreatedAtActionResult>(result);
         }
 
-        _carServiceMock.Verify(service => service.Create(It.IsAny<CarDto>()), Times.Exactly(100));
+        _carServiceMock.Verify(service => service.Create(It.IsAny<CarDto>()), Times.Exactly(countCars));
     }
 
     [Fact]
     public async Task Create100000Cars()
     {
         var cars = new List<CarDto>();
+        const int countCars = 100000;
 
-        for (int i = 0; i < 100000; i++)
+        for (int i = 0; i < countCars; i++)
         {
             cars.Add(new CarDto {Brand = $"Lada{i}", Model = "Granta", Generation = i.ToString(), Engine = "1.4"});
         }
@@ -64,7 +68,7 @@ public class CarControllerTest
             Assert.IsType<CreatedAtActionResult>(result);
         }
 
-        _carServiceMock.Verify(service => service.Create(It.IsAny<CarDto>()), Times.Exactly(100000));
+        _carServiceMock.Verify(service => service.Create(It.IsAny<CarDto>()), Times.Exactly(countCars));
     }
 
     [Fact]

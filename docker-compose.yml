@@ -1,0 +1,10 @@
+﻿services:
+  redis:
+    image: redis
+    ports:
+      - "6379:6379"
+  autodealer:
+    image: autodealer
+    build:
+      context: .
+      dockerfile: Autodealer/Dockerfile

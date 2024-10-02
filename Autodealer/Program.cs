@@ -2,8 +2,15 @@
 
 using Autodealer;
 using Autodealer.Services;
+using Autodealer.Services.Caching;
 
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddStackExchangeRedisCache(option =>
+{
+    option.Configuration = builder.Configuration.GetConnectionString("Redis");
+    option.InstanceName = "Cars_";
+});
 
 // Add services to the container.
 builder.Services.AddControllers();
@@ -14,6 +21,7 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddSingleton<MongoDbService>();
 builder.Services.AddScoped<ICarService, CarService>();
+builder.Services.AddScoped<IRedisCacheService, RedisCacheService>();
 
 var app = builder.Build();
 
