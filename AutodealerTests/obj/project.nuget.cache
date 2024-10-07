@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "O0hOqi0du6JRwylGVmLbLKHv6W89daYu9n/t8gzSzmvQ63ycC7cEEWIiCUJGHHWVPbYTl2aQ0LRXx8wGStgCFQ==",
+  "dgSpecHash": "v56vSKxHb0km4LVJ+jKb9sDH6TKFGmxKDUVBjR8utM9Pv5DJvtqplXduFGPsPh2LNqQw06PQXFhCv6GkypTJXQ==",
   "success": true,
   "projectFilePath": "D:\\Институт\\2 курс\\2 семестр\\ООП Курсач\\RestApi\\AutodealerTests\\AutodealerTests.csproj",
   "expectedPackageFiles": [
@@ -9,7 +9,7 @@
     "C:\\Users\\Константин\\.nuget\\packages\\castle.core\\5.1.1\\castle.core.5.1.1.nupkg.sha512",
     "C:\\Users\\Константин\\.nuget\\packages\\coverlet.collector\\6.0.0\\coverlet.collector.6.0.0.nupkg.sha512",
     "C:\\Users\\Константин\\.nuget\\packages\\dnsclient\\1.6.1\\dnsclient.1.6.1.nupkg.sha512",
-    "C:\\Users\\Константин\\.nuget\\packages\\microsoft.aspnetcore.openapi\\8.0.3\\microsoft.aspnetcore.openapi.8.0.3.nupkg.sha512",
+    "C:\\Users\\Константин\\.nuget\\packages\\microsoft.aspnetcore.openapi\\8.0.8\\microsoft.aspnetcore.openapi.8.0.8.nupkg.sha512",
     "C:\\Users\\Константин\\.nuget\\packages\\microsoft.codecoverage\\17.8.0\\microsoft.codecoverage.17.8.0.nupkg.sha512",
     "C:\\Users\\Константин\\.nuget\\packages\\microsoft.extensions.apidescription.server\\6.0.5\\microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",
     "C:\\Users\\Константин\\.nuget\\packages\\microsoft.extensions.caching.abstractions\\8.0.0\\microsoft.extensions.caching.abstractions.8.0.0.nupkg.sha512",

@@ -1,13 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "iT8/H9kXflQQWwMKIDOLE+sFdPzEY5ZRNMSgbBivX05bgtjZ5UJiD4YzOb1feQ6BYGQpPQWE7++3jtiFTfcyNw==",
+  "dgSpecHash": "TRg9nLj+HnORh1eZm//JfemSSq+/svN3XjSYxZuhrqUYp5UplZ8ye05NFnr4JnRrPYpxmQRM+VZRRYOoA2mekA==",
   "success": true,
   "projectFilePath": "D:\\Институт\\2 курс\\2 семестр\\ООП Курсач\\RestApi\\Autodealer\\Autodealer.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Константин\\.nuget\\packages\\awssdk.core\\3.7.100.14\\awssdk.core.3.7.100.14.nupkg.sha512",
     "C:\\Users\\Константин\\.nuget\\packages\\awssdk.securitytoken\\3.7.100.14\\awssdk.securitytoken.3.7.100.14.nupkg.sha512",
     "C:\\Users\\Константин\\.nuget\\packages\\dnsclient\\1.6.1\\dnsclient.1.6.1.nupkg.sha512",
-    "C:\\Users\\Константин\\.nuget\\packages\\microsoft.aspnetcore.openapi\\8.0.3\\microsoft.aspnetcore.openapi.8.0.3.nupkg.sha512",
+    "C:\\Users\\Константин\\.nuget\\packages\\microsoft.aspnetcore.openapi\\8.0.8\\microsoft.aspnetcore.openapi.8.0.8.nupkg.sha512",
     "C:\\Users\\Константин\\.nuget\\packages\\microsoft.extensions.apidescription.server\\6.0.5\\microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",
     "C:\\Users\\Константин\\.nuget\\packages\\microsoft.extensions.caching.abstractions\\8.0.0\\microsoft.extensions.caching.abstractions.8.0.0.nupkg.sha512",
     "C:\\Users\\Константин\\.nuget\\packages\\microsoft.extensions.caching.stackexchangeredis\\8.0.8\\microsoft.extensions.caching.stackexchangeredis.8.0.8.nupkg.sha512",

@@ -8,3 +8,15 @@
     build:
       context: .
       dockerfile: Autodealer/Dockerfile
+
+  usercore:
+    image: usercore
+    build:
+      context: .
+      dockerfile: UserCore/Dockerfile
+
+  usercore-1:
+    image: usercore-1
+    build:
+      context: .
+      dockerfile: UserCore/Dockerfile
