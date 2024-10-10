@@ -6,14 +6,9 @@ using MongoDB.Driver;
 
 namespace Autodealer.Services;
 
-public class CarService : ICarService
+public class CarService(MongoDbService mongoDbService) : ICarService
 {
-    private readonly IMongoCollection<Car> _cars;
-
-    public CarService(MongoDbService mongoDbService)
-    {
-        _cars = mongoDbService.Database.GetCollection<Car>("car");
-    }
+    private readonly IMongoCollection<Car> _cars = mongoDbService.Database.GetCollection<Car>("car");
 
     public async Task<IEnumerable<Car>?> GetAll()
     {

@@ -11,13 +11,13 @@ namespace Autodealer.Controllers;
 public class CarsController(ICarService carService, IRedisCacheService cache) : ControllerBase
 {
     [HttpGet]
-    public async Task<IEnumerable<Car>?> GetAll()
+    public async Task<ActionResult<IEnumerable<Car>?>> GetAll()
     {
         try
         {
-            var userId = Request.Headers["UserId"];
+            //var userId = Request.Headers["UserId"];
 
-            var cachingKey = $"cars_{userId}";
+            var cachingKey = "cars_";
             var cars = cache.GetData<IEnumerable<Car>>(cachingKey);
             if (cars is null)
             {
@@ -25,12 +25,11 @@ public class CarsController(ICarService carService, IRedisCacheService cache) : 
                 cache.SetData(cachingKey, cars);
             }
 
-            return cars;
+            return Ok(cars);
         }
         catch (Exception ex)
         {
-            Console.WriteLine(ex.Message);
-            return null;
+            return BadRequest(ex.Message);
         }
     }
 
@@ -39,7 +38,7 @@ public class CarsController(ICarService carService, IRedisCacheService cache) : 
     {
         try
         {
-            const string key = "carsById";
+            string key = $"carsById{id}";
             var car = cache.GetData<Car>(key);
             if (car is null)
             {
@@ -59,6 +58,7 @@ public class CarsController(ICarService carService, IRedisCacheService cache) : 
     public async Task<IActionResult> Create(CarDto car)
     {
         var createdAuto = await carService.Create(car);
+        cache.Delete<Car>("cars_");
         return CreatedAtAction(nameof(GetById), new { id = createdAuto.Id }, createdAuto);
     }
 
@@ -68,6 +68,8 @@ public class CarsController(ICarService carService, IRedisCacheService cache) : 
         try
         {
             await carService.Update(car);
+            cache.Delete<Car>("cars_");
+            cache.SetData($"carsById{car.Id}", car);
         }
         catch
         {
@@ -82,6 +84,8 @@ public class CarsController(ICarService carService, IRedisCacheService cache) : 
         try
         {
             await carService.Delete(id);
+            cache.Delete<Car>("cars_");
+            cache.Delete<Car>($"carsById{id}");
         }
         catch
         {

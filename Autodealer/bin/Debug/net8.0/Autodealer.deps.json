@@ -8,7 +8,7 @@
     ".NETCoreApp,Version=v8.0": {
       "Autodealer/1.0.0": {
         "dependencies": {
-          "Microsoft.AspNetCore.OpenApi": "8.0.3",
+          "Microsoft.AspNetCore.OpenApi": "8.0.8",
           "Microsoft.Extensions.Caching.StackExchangeRedis": "8.0.8",
           "MongoDB.Driver": "2.28.0",
           "StackExchange.Redis": "2.8.16",
@@ -48,14 +48,14 @@
           }
         }
       },
-      "Microsoft.AspNetCore.OpenApi/8.0.3": {
+      "Microsoft.AspNetCore.OpenApi/8.0.8": {
         "dependencies": {
           "Microsoft.OpenApi": "1.4.3"
         },
         "runtime": {
           "lib/net8.0/Microsoft.AspNetCore.OpenApi.dll": {
-            "assemblyVersion": "8.0.3.0",
-            "fileVersion": "8.0.324.11615"
+            "assemblyVersion": "8.0.8.0",
+            "fileVersion": "8.0.824.36908"
           }
         }
       },
@@ -321,12 +321,12 @@
       "path": "dnsclient/1.6.1",
       "hashPath": "dnsclient.1.6.1.nupkg.sha512"
     },
-    "Microsoft.AspNetCore.OpenApi/8.0.3": {
+    "Microsoft.AspNetCore.OpenApi/8.0.8": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-mUq0UL+H7UtA3Jud/7/BC7n5W2c4zCvTFUa2hE2+/oQqATa4oGHb87ETON09SEWkcbBRTz3WM16kTE+zuoXq2A==",
-      "path": "microsoft.aspnetcore.openapi/8.0.3",
-      "hashPath": "microsoft.aspnetcore.openapi.8.0.3.nupkg.sha512"
+      "sha512": "sha512-wNHhohqP8rmsQ4UhKbd6jZMD6l+2Q/+DvRBT0Cgqeuglr13aF6sSJWicZKCIhZAUXzuhkdwtHVc95MlPlFk0dA==",
+      "path": "microsoft.aspnetcore.openapi/8.0.8",
+      "hashPath": "microsoft.aspnetcore.openapi.8.0.8.nupkg.sha512"
     },
     "Microsoft.Extensions.ApiDescription.Server/6.0.5": {
       "type": "package",

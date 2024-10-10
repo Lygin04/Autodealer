@@ -74,7 +74,7 @@ public class CarsControllerTest
     [Fact]
     public async Task DeleteAllCars()
     {
-        var cars = (await _controller.GetAll()).ToList();
+        var cars = (await _controller.GetAll()).Value as List<Car>;
 
         foreach (var car in cars)
         {

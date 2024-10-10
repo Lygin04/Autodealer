@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Институт\\2 курс\\2 семестр\\ООП Курсач\\RestApi\\AutodealerTests\\AutodealerTests.csproj": {}
+    "D:\\Проекты VS\\RestApi\\AutodealerTests\\AutodealerTests.csproj": {}
   },
   "projects": {
-    "D:\\Институт\\2 курс\\2 семестр\\ООП Курсач\\RestApi\\AutodealerTests\\AutodealerTests.csproj": {
+    "D:\\Проекты VS\\RestApi\\AutodealerTests\\AutodealerTests.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Институт\\2 курс\\2 семестр\\ООП Курсач\\RestApi\\AutodealerTests\\AutodealerTests.csproj",
+        "projectUniqueName": "D:\\Проекты VS\\RestApi\\AutodealerTests\\AutodealerTests.csproj",
         "projectName": "AutodealerTests",
-        "projectPath": "D:\\Институт\\2 курс\\2 семестр\\ООП Курсач\\RestApi\\AutodealerTests\\AutodealerTests.csproj",
+        "projectPath": "D:\\Проекты VS\\RestApi\\AutodealerTests\\AutodealerTests.csproj",
         "packagesPath": "C:\\Users\\Константин\\.nuget\\packages\\",
-        "outputPath": "D:\\Институт\\2 курс\\2 семестр\\ООП Курсач\\RestApi\\AutodealerTests\\obj\\",
+        "outputPath": "D:\\Проекты VS\\RestApi\\AutodealerTests\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -33,8 +33,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "D:\\Институт\\2 курс\\2 семестр\\ООП Курсач\\RestApi\\Autodealer\\Autodealer.csproj": {
-                "projectPath": "D:\\Институт\\2 курс\\2 семестр\\ООП Курсач\\RestApi\\Autodealer\\Autodealer.csproj"
+              "D:\\Проекты VS\\RestApi\\Autodealer\\Autodealer.csproj": {
+                "projectPath": "D:\\Проекты VS\\RestApi\\Autodealer\\Autodealer.csproj"
               }
             }
           }
@@ -94,14 +94,14 @@
         }
       }
     },
-    "D:\\Институт\\2 курс\\2 семестр\\ООП Курсач\\RestApi\\Autodealer\\Autodealer.csproj": {
+    "D:\\Проекты VS\\RestApi\\Autodealer\\Autodealer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Институт\\2 курс\\2 семестр\\ООП Курсач\\RestApi\\Autodealer\\Autodealer.csproj",
+        "projectUniqueName": "D:\\Проекты VS\\RestApi\\Autodealer\\Autodealer.csproj",
         "projectName": "Autodealer",
-        "projectPath": "D:\\Институт\\2 курс\\2 семестр\\ООП Курсач\\RestApi\\Autodealer\\Autodealer.csproj",
+        "projectPath": "D:\\Проекты VS\\RestApi\\Autodealer\\Autodealer.csproj",
         "packagesPath": "C:\\Users\\Константин\\.nuget\\packages\\",
-        "outputPath": "D:\\Институт\\2 курс\\2 семестр\\ООП Курсач\\RestApi\\Autodealer\\obj\\",
+        "outputPath": "D:\\Проекты VS\\RestApi\\Autodealer\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

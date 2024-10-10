@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "v56vSKxHb0km4LVJ+jKb9sDH6TKFGmxKDUVBjR8utM9Pv5DJvtqplXduFGPsPh2LNqQw06PQXFhCv6GkypTJXQ==",
+  "dgSpecHash": "8/gb+ZTMmyJwm9pYtVhCBIgRu5Oh/she0eSdq9xlgv1ioIDLOvZC9LxPv2HBtH3B7iK3z3B6BciHbuvYsArTGw==",
   "success": true,
-  "projectFilePath": "D:\\Институт\\2 курс\\2 семестр\\ООП Курсач\\RestApi\\AutodealerTests\\AutodealerTests.csproj",
+  "projectFilePath": "D:\\Проекты VS\\RestApi\\AutodealerTests\\AutodealerTests.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Константин\\.nuget\\packages\\awssdk.core\\3.7.100.14\\awssdk.core.3.7.100.14.nupkg.sha512",
     "C:\\Users\\Константин\\.nuget\\packages\\awssdk.securitytoken\\3.7.100.14\\awssdk.securitytoken.3.7.100.14.nupkg.sha512",

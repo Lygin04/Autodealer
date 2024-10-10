@@ -20,4 +20,9 @@ public class RedisCacheService(IDistributedCache cache) : IRedisCacheService
 
         cache.SetString(key, JsonSerializer.Serialize(data), options);
     }
+
+    public void Delete<T>(string key)
+    {
+        cache.Remove(key);
+    }
 }
