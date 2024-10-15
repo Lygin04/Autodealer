@@ -1,5 +1,6 @@
+using Autodealer.Data;
 using Autodealer.Dto;
-using Autodealer.Model;
+using Autodealer.Entities;
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 using MongoDB.Driver;

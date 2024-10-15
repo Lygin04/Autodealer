@@ -1,5 +1,5 @@
 using Autodealer.Dto;
-using Autodealer.Model;
+using Autodealer.Entities;
 using Autodealer.Services;
 using Autodealer.Services.Caching;
 using Microsoft.AspNetCore.Mvc;
@@ -8,22 +8,19 @@ namespace Autodealer.Controllers;
 
 [Route("[controller]")]
 [ApiController]
-public class CarsController(ICarService carService, IRedisCacheService cache) : ControllerBase
+public class CarsController(ICarService carService, IRedisCacheService cache, ProducerService producer) : ControllerBase
 {
     [HttpGet]
     public async Task<ActionResult<IEnumerable<Car>?>> GetAll()
     {
         try
         {
-            //var userId = Request.Headers["UserId"];
-
             var cachingKey = "cars_";
             var cars = cache.GetData<IEnumerable<Car>>(cachingKey);
-            if (cars is null)
-            {
-                cars = await carService.GetAll();
-                cache.SetData(cachingKey, cars);
-            }
+            if (cars is not null) 
+                return Ok(cars);
+            cars = await carService.GetAll();
+            cache.SetData(cachingKey, cars);
 
             return Ok(cars);
         }
@@ -38,13 +35,12 @@ public class CarsController(ICarService carService, IRedisCacheService cache) : 
     {
         try
         {
-            string key = $"carsById{id}";
+            var key = $"carsById{id}";
             var car = cache.GetData<Car>(key);
-            if (car is null)
-            {
-                car = carService.GetById(id);
-                cache.SetData(key, car);
-            }
+            if (car is not null) 
+                return Ok(car);
+            car = carService.GetById(id);
+            cache.SetData(key, car);
 
             return Ok(car);
         }
@@ -92,5 +88,12 @@ public class CarsController(ICarService carService, IRedisCacheService cache) : 
             return NotFound();
         }
         return Ok();
+    }
+
+    [HttpGet("/producer")]
+    public async Task<IActionResult> Producer(CancellationToken token)
+    {
+        await producer.ProduceAsync(token);
+        return Ok("Сообщение отправлено");
     }
 }

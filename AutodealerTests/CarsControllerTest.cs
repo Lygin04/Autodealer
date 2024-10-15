@@ -1,6 +1,6 @@
 using Autodealer.Controllers;
 using Autodealer.Dto;
-using Autodealer.Model;
+using Autodealer.Entities;
 using Autodealer.Services;
 using Autodealer.Services.Caching;
 using Microsoft.AspNetCore.Mvc;

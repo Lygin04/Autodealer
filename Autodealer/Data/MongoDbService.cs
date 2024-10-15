@@ -1,6 +1,6 @@
 using MongoDB.Driver;
 
-namespace Autodealer;
+namespace Autodealer.Data;
 
 public class MongoDbService
 {

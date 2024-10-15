@@ -1,40 +1,39 @@
-using Microsoft.EntityFrameworkCore;
-using UserCore.Data;
 using UserCore.DTOs;
 using UserCore.Entities;
+using UserCore.Infrastructure;
+using UserCore.Interfaces.Auth;
+using UserCore.Interfaces.Repositories;
+using UserCore.Repositories;
 
 namespace UserCore.Services;
 
-public class UserService(DataContext context) : IUserService
+public class UserService(
+    IPasswordHasher passwordHasher, 
+    IUserRepository userRepository, 
+    IJwtProvider jwtProvider) : IUserService
 {
-    public async Task<User> Register(RegisterDto registerDto)
+    public async Task Register(RegisterDto registerDto)
     {
+        var hashedPassword = passwordHasher.Generate(registerDto.Password);
+        
         User user = new User
         {
             Email = registerDto.Email,
-            Password = registerDto.Password,
+            Password = hashedPassword,
             Name = registerDto.Name,
             Phone = registerDto.Phone
         };
 
-        await context.Users.AddAsync(user);
-        await context.SaveChangesAsync();
-        return user;
+        await userRepository.Add(user);
     }
 
-    public async Task Login(LoginDto login)
+    public async Task<string> Login(LoginDto login)
     {
-        User? user = await context.Users.Where(x => x.Email == login.Email && x.Password == login.Password)
-            .FirstOrDefaultAsync();
-        if (user == null)
-            throw new InvalidOperationException();
-    }
-
-    public async Task Delete(string id)
-    {
-        User? user = await context.Users.Where(x => x.Id == Convert.ToUInt32(id)).FirstOrDefaultAsync();
-        if (user == null)
-            throw new InvalidOperationException();
-        context.Users.Remove(user);
+        var user = await userRepository.GetByEmail(login.Email);
+        var result = passwordHasher.Verify(login.Password, user.Password);
+        if (!result)
+            throw new Exception();
+        var token = jwtProvider.GenerateToken(user);
+        return token;
     }
 }

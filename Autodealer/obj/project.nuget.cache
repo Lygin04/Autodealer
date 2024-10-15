@@ -1,12 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "7yGUeOkXJJ6qenwiQstcK1fOklGeGWbCMX4+95DDwCY4vmdWV3gaN77SmSTP1FuuhymxBsPfpt0/bV+3/VIg/Q==",
+  "dgSpecHash": "Kl+NEBcJEq2IRHxT+XPLjj730vlzaHgJZSAHCSXOIK8P3XalSu/QJbVJWSQcUZI1hY5TvKMZLdhHVxTqzKcoPg==",
   "success": true,
   "projectFilePath": "D:\\Проекты VS\\RestApi\\Autodealer\\Autodealer.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Константин\\.nuget\\packages\\awssdk.core\\3.7.100.14\\awssdk.core.3.7.100.14.nupkg.sha512",
     "C:\\Users\\Константин\\.nuget\\packages\\awssdk.securitytoken\\3.7.100.14\\awssdk.securitytoken.3.7.100.14.nupkg.sha512",
+    "C:\\Users\\Константин\\.nuget\\packages\\confluent.kafka\\2.6.0\\confluent.kafka.2.6.0.nupkg.sha512",
     "C:\\Users\\Константин\\.nuget\\packages\\dnsclient\\1.6.1\\dnsclient.1.6.1.nupkg.sha512",
+    "C:\\Users\\Константин\\.nuget\\packages\\librdkafka.redist\\2.6.0\\librdkafka.redist.2.6.0.nupkg.sha512",
     "C:\\Users\\Константин\\.nuget\\packages\\microsoft.aspnetcore.openapi\\8.0.8\\microsoft.aspnetcore.openapi.8.0.8.nupkg.sha512",
     "C:\\Users\\Константин\\.nuget\\packages\\microsoft.extensions.apidescription.server\\6.0.5\\microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",
     "C:\\Users\\Константин\\.nuget\\packages\\microsoft.extensions.caching.abstractions\\8.0.0\\microsoft.extensions.caching.abstractions.8.0.0.nupkg.sha512",

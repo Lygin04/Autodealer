@@ -1,5 +1,5 @@
 using Autodealer.Dto;
-using Autodealer.Model;
+using Autodealer.Entities;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Autodealer.Services;

@@ -1,6 +1,7 @@
 // Подбор автомобилей
 
 using Autodealer;
+using Autodealer.Data;
 using Autodealer.Services;
 using Autodealer.Services.Caching;
 
@@ -20,6 +21,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddSingleton<MongoDbService>();
+builder.Services.AddSingleton<ProducerService>();
 builder.Services.AddScoped<ICarService, CarService>();
 builder.Services.AddScoped<IRedisCacheService, RedisCacheService>();
 

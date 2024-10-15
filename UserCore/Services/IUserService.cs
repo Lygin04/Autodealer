@@ -5,7 +5,6 @@ namespace UserCore.Services;
 
 public interface IUserService
 {
-    Task<User> Register(RegisterDto registerDto);
-    Task Login(LoginDto login);
-    Task Delete(string id);
+    Task Register(RegisterDto registerDto);
+    Task<string> Login(LoginDto login);
 }

@@ -1,14 +1,16 @@
 {
   "version": 2,
-  "dgSpecHash": "8/gb+ZTMmyJwm9pYtVhCBIgRu5Oh/she0eSdq9xlgv1ioIDLOvZC9LxPv2HBtH3B7iK3z3B6BciHbuvYsArTGw==",
+  "dgSpecHash": "THcl5uVYNOZycNBo1E9DMMHXB5VXXwIbQYMPQ2iXTWebz5m32JMTIyET+cogxbRvo50/hIsJOT3IOKFnd7fNow==",
   "success": true,
   "projectFilePath": "D:\\Проекты VS\\RestApi\\AutodealerTests\\AutodealerTests.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Константин\\.nuget\\packages\\awssdk.core\\3.7.100.14\\awssdk.core.3.7.100.14.nupkg.sha512",
     "C:\\Users\\Константин\\.nuget\\packages\\awssdk.securitytoken\\3.7.100.14\\awssdk.securitytoken.3.7.100.14.nupkg.sha512",
     "C:\\Users\\Константин\\.nuget\\packages\\castle.core\\5.1.1\\castle.core.5.1.1.nupkg.sha512",
+    "C:\\Users\\Константин\\.nuget\\packages\\confluent.kafka\\2.6.0\\confluent.kafka.2.6.0.nupkg.sha512",
     "C:\\Users\\Константин\\.nuget\\packages\\coverlet.collector\\6.0.0\\coverlet.collector.6.0.0.nupkg.sha512",
     "C:\\Users\\Константин\\.nuget\\packages\\dnsclient\\1.6.1\\dnsclient.1.6.1.nupkg.sha512",
+    "C:\\Users\\Константин\\.nuget\\packages\\librdkafka.redist\\2.6.0\\librdkafka.redist.2.6.0.nupkg.sha512",
     "C:\\Users\\Константин\\.nuget\\packages\\microsoft.aspnetcore.openapi\\8.0.8\\microsoft.aspnetcore.openapi.8.0.8.nupkg.sha512",
     "C:\\Users\\Константин\\.nuget\\packages\\microsoft.codecoverage\\17.8.0\\microsoft.codecoverage.17.8.0.nupkg.sha512",
     "C:\\Users\\Константин\\.nuget\\packages\\microsoft.extensions.apidescription.server\\6.0.5\\microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",

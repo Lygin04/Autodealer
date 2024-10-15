@@ -1,0 +1,21 @@
+# This is a generated file. Not intended for manual editing.
+services:
+  autodealer:
+    build:
+      context: "D:\\Проекты VS\\RestApi"
+      dockerfile: "Autodealer/Dockerfile"
+      target: "base"
+    command: []
+    entrypoint:
+    - "dotnet"
+    - "/app/bin/Debug/net8.0/Autodealer.dll"
+    environment:
+      ASPNETCORE_ENVIRONMENT: "Development"
+      DOTNET_USE_POLLING_FILE_WATCHER: "true"
+    image: "autodealer:dev"
+    ports: []
+    volumes:
+    - "C:\\Users\\Константин\\.nuget\\packages:/home/app/.nuget/packages"
+    - "D:\\Проекты VS\\RestApi\\Autodealer:/app:rw"
+    - "D:\\Проекты VS\\RestApi:/src:rw"
+    working_dir: "/app"

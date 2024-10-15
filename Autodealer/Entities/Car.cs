@@ -1,7 +1,7 @@
 using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
 
-namespace Autodealer.Model;
+namespace Autodealer.Entities;
 
 public class Car
 {
