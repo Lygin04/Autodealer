@@ -4,5 +4,5 @@ namespace UserCore.Interfaces.Auth;
 
 public interface IJwtProvider
 {
-    string GenerateToken(User user);
+    string GenerateToken(UserEntity userEntity);
 }

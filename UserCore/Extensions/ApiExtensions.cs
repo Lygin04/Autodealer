@@ -11,8 +11,8 @@ public static class ApiExtensions
     public static void AddApiAuthentication(this IServiceCollection services, IOptions<JwtOptions> jwtOptions)
     {
         
-        services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(
-            JwtBearerDefaults.AuthenticationScheme,
+        services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+            .AddJwtBearer(JwtBearerDefaults.AuthenticationScheme,
             opt =>
             {
                 opt.TokenValidationParameters = new TokenValidationParameters
@@ -34,6 +34,12 @@ public static class ApiExtensions
                 };
             });
 
-        services.AddAuthorization();
+        services.AddAuthorization(opt =>
+        {
+            opt.AddPolicy("AdminPolicy", policy =>
+            {
+                policy.RequireClaim("Admin", "true");
+            });
+        });
     }
 }

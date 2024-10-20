@@ -4,6 +4,6 @@ namespace UserCore.Interfaces.Repositories;
 
 public interface IUserRepository
 {
-    Task Add(User user);
-    Task<User> GetByEmail(string email);
+    Task Add(UserEntity userEntity);
+    Task<UserEntity> GetByEmail(string email);
 }

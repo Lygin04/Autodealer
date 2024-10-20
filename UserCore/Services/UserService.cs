@@ -16,7 +16,7 @@ public class UserService(
     {
         var hashedPassword = passwordHasher.Generate(registerDto.Password);
         
-        User user = new User
+        UserEntity userEntity = new UserEntity
         {
             Email = registerDto.Email,
             Password = hashedPassword,
@@ -24,7 +24,7 @@ public class UserService(
             Phone = registerDto.Phone
         };
 
-        await userRepository.Add(user);
+        await userRepository.Add(userEntity);
     }
 
     public async Task<string> Login(LoginDto login)
