@@ -4,6 +4,7 @@ using System.Text;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using UserCore.Entities;
+using UserCore.Enums;
 using UserCore.Interfaces.Auth;
 
 namespace UserCore.Infrastructure;
@@ -15,8 +16,7 @@ public class JwtProvider(IOptions<JwtOptions> options) : IJwtProvider
     public string GenerateToken(UserEntity userEntity)
     {
         Claim[] claims = [
-            new("userId", userEntity.Id.ToString()),
-            new ("Admin", "true")
+            new(CustomClaims.UserId, userEntity.Id.ToString())
         ];
         var signingCredentials =
             new SigningCredentials(new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_options.SecretKey)),

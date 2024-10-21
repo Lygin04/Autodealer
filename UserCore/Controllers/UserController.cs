@@ -1,6 +1,8 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using UserCore.DTOs;
+using UserCore.Enums;
+using UserCore.Infrastructure;
 using UserCore.Services;
 
 namespace UserCore.Controllers;
@@ -9,7 +11,6 @@ namespace UserCore.Controllers;
 [Route("[controller]")]
 public class UserController(IUserService service) : ControllerBase
 {
-    [Authorize]
     [HttpPost("/register")]
     public async Task<IActionResult> Register(RegisterDto registerDto)
     {
@@ -38,4 +39,12 @@ public class UserController(IUserService service) : ControllerBase
             return BadRequest(ex.Message);
         }
     }
+
+    [HttpGet("/admin")]
+    [RequirePermission(Permission.Read)]
+    public IActionResult User()
+    {
+        return Ok("Hi, User");
+    }
+    
 }

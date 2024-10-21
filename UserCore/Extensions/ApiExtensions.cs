@@ -1,8 +1,11 @@
 using System.Text;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
+using UserCore.Enums;
 using UserCore.Infrastructure;
+using UserCore.Interfaces.Auth;
 
 namespace UserCore.Extensions;
 
@@ -34,12 +37,22 @@ public static class ApiExtensions
                 };
             });
 
-        services.AddAuthorization(opt =>
+        
+        services.AddScoped<IPermissionService, PermissionService>();
+        services.AddSingleton<IAuthorizationHandler, PermissionAuthorizationHandler>();
+        
+        services.AddAuthorization(options =>
         {
-            opt.AddPolicy("AdminPolicy", policy =>
+            options.AddPolicy("Permission", policy =>
             {
-                policy.RequireClaim("Admin", "true");
+                policy.Requirements.Add(new PermissionRequirement(new Permission[] { /* указать права */ }));
             });
         });
+    }
+    
+    public static IEndpointConventionBuilder RequirePermission<TBuilder>(this TBuilder builder,
+        params Permission[] permissions) where TBuilder : IEndpointConventionBuilder
+    {
+        return builder.RequireAuthorization(policy => policy.AddRequirements(new PermissionRequirement(permissions)));
     }
 }
