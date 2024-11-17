@@ -30,7 +30,7 @@ builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IJwtProvider, JwtProvider>();
 builder.Services.AddScoped<IPasswordHasher, PasswordHasher>();
 
-builder.Services.AddHostedService<ConsumerService>();
+//builder.Services.AddHostedService<ConsumerService>();
 
 var app = builder.Build();
 

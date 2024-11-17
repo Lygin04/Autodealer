@@ -2,6 +2,7 @@ using Autodealer.Dto;
 using Autodealer.Entities;
 using Autodealer.Services;
 using Autodealer.Services.Caching;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Autodealer.Controllers;
@@ -51,6 +52,7 @@ public class CarsController(ICarService carService, IRedisCacheService cache, Pr
     }
 
     [HttpPost]
+    [Authorize]
     public async Task<IActionResult> Create(CarDto car)
     {
         var createdAuto = await carService.Create(car);
@@ -59,6 +61,7 @@ public class CarsController(ICarService carService, IRedisCacheService cache, Pr
     }
 
     [HttpPut]
+    [Authorize]
     public async Task<IActionResult> Update(Car car)
     {
         try
@@ -75,9 +78,10 @@ public class CarsController(ICarService carService, IRedisCacheService cache, Pr
     }
 
     [HttpDelete("{id}")]
+    [Authorize]
     public async Task<IActionResult> Delete(string id)
     {
-        try
+        /*try
         {
             await carService.Delete(id);
             cache.Delete<Car>("cars_");
@@ -86,7 +90,7 @@ public class CarsController(ICarService carService, IRedisCacheService cache, Pr
         catch
         {
             return NotFound();
-        }
+        }*/
         return Ok();
     }
 

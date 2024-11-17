@@ -9,7 +9,6 @@ namespace UserCore.Controllers;
 [Route("[controller]")]
 public class UserController(IUserService service) : ControllerBase
 {
-    [Authorize]
     [HttpPost("/register")]
     public async Task<IActionResult> Register(RegisterDto registerDto)
     {
