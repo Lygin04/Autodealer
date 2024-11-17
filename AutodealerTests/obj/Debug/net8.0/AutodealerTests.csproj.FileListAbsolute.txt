@@ -132,3 +132,13 @@ D:\Институт\2 курс\2 семестр\ООП Курсач\RestApi\Auto
 D:\Институт\2 курс\2 семестр\ООП Курсач\RestApi\AutodealerTests\bin\Debug\net8.0\Microsoft.Extensions.Options.dll
 D:\Институт\2 курс\2 семестр\ООП Курсач\RestApi\AutodealerTests\bin\Debug\net8.0\Pipelines.Sockets.Unofficial.dll
 D:\Институт\2 курс\2 семестр\ООП Курсач\RestApi\AutodealerTests\bin\Debug\net8.0\StackExchange.Redis.dll
+C:\Users\kosty\RiderProjects\Autodealer\AutodealerTests\bin\Debug\net8.0\CoverletSourceRootsMapping_AutodealerTests
+C:\Users\kosty\RiderProjects\Autodealer\AutodealerTests\obj\Debug\net8.0\AutodealerTests.csproj.AssemblyReference.cache
+C:\Users\kosty\RiderProjects\Autodealer\AutodealerTests\obj\Debug\net8.0\AutodealerTests.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\kosty\RiderProjects\Autodealer\AutodealerTests\obj\Debug\net8.0\AutodealerTests.AssemblyInfoInputs.cache
+C:\Users\kosty\RiderProjects\Autodealer\AutodealerTests\obj\Debug\net8.0\AutodealerTests.AssemblyInfo.cs
+C:\Users\kosty\RiderProjects\Autodealer\AutodealerTests\obj\Debug\net8.0\AutodealerTests.csproj.CoreCompileInputs.cache
+C:\Users\kosty\RiderProjects\Autodealer\AutodealerTests\obj\Debug\net8.0\AutodealerTests.sourcelink.json
+C:\Users\kosty\RiderProjects\Autodealer\AutodealerTests\obj\Debug\net8.0\AutodealerTests.dll
+C:\Users\kosty\RiderProjects\Autodealer\AutodealerTests\obj\Debug\net8.0\refint\AutodealerTests.dll
+C:\Users\kosty\RiderProjects\Autodealer\AutodealerTests\obj\Debug\net8.0\AutodealerTests.pdb

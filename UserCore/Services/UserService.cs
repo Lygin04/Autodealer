@@ -15,16 +15,8 @@ public class UserService(
     public async Task Register(RegisterDto registerDto)
     {
         var hashedPassword = passwordHasher.Generate(registerDto.Password);
-        
-        User user = new User
-        {
-            Email = registerDto.Email,
-            Password = hashedPassword,
-            Name = registerDto.Name,
-            Phone = registerDto.Phone
-        };
-
-        await userRepository.Add(user);
+        registerDto.Password = hashedPassword;
+        await userRepository.Add(registerDto);
     }
 
     public async Task<string> Login(LoginDto login)
