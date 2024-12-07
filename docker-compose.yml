@@ -1,8 +1,10 @@
 ﻿services:
   redis:
     image: redis
+    restart: always
     ports:
       - "6379:6379"
+    command: ["redis-server", "--appendonly", "yes"]
         
   zookeeper:
     image: confluentinc/cp-zookeeper
@@ -33,12 +35,84 @@
     build:
       context: .
       dockerfile: Autodealer/Dockerfile
-
+    restart: always
+    ports:
+      - "9090:9090"
+    networks:
+      - autodealer
+    links:
+      - mongo
+    depends_on:
+      - mongo
+      - redis
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_URLS: "http://+:9090"
+    volumes:
+      - /path/to/home/.microsoft/usersecrets:/root/.microsoft/usersecrets
+      - /path/to/home/.aspnet/https:/root/.aspnet/https
+  
   usercore:
     image: usercore
     build:
       context: .
       dockerfile: UserCore/Dockerfile
+    ports:
+      - "9091:9091"
+    networks:
+      - autodealer
+    depends_on:
+      - postgres_user
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_URLS: "http://+:9091"
+        
+  apigateway:
+    image: apigateway
+    build:
+      context: .
+      dockerfile: ApiGateway/Dockerfile
+    ports:
+      - "9093:9093"
+    networks:
+      - autodealer
+    depends_on:
+      - usercore
+      - autodealer
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_URLS: "http://+:9093"
+        
+  postgres_user:
+    image: postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: admin
+      POSTGRES_DB: Autodealer
+    ports:
+      - "5432:5432"
+    networks:
+      - autodealer
+    volumes:
+      - postgres_data:/var/lib/postresql/data
+        
+  mongo:
+    image: mongo
+    volumes:
+      - mongo_data:/data/db
+    restart: always
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_DATABASE: Autodealer
+    networks:
+      - autodealer
       
 networks:
   kafka:
+  autodealer:
+    driver: bridge
+    
+volumes:
+  postgres_data:
+  mongo_data:

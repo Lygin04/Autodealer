@@ -1,5 +1,23 @@
 # This is a generated file. Not intended for manual editing.
 services:
+  apigateway:
+    build:
+      context: "D:\\Проекты VS\\RestApi"
+      dockerfile: "ApiGateway/Dockerfile"
+      target: "base"
+    command: []
+    entrypoint:
+    - "dotnet"
+    - "/app/bin/Debug/net8.0/ApiGateway.dll"
+    environment:
+      DOTNET_USE_POLLING_FILE_WATCHER: "true"
+    image: "apigateway:dev"
+    ports: []
+    volumes:
+    - "D:\\Проекты VS\\RestApi\\ApiGateway:/app:rw"
+    - "D:\\Проекты VS\\RestApi:/src:rw"
+    - "C:\\Users\\Константин\\.nuget\\packages:/home/app/.nuget/packages"
+    working_dir: "/app"
   autodealer:
     build:
       context: "D:\\Проекты VS\\RestApi"
@@ -10,12 +28,29 @@ services:
     - "dotnet"
     - "/app/bin/Debug/net8.0/Autodealer.dll"
     environment:
-      ASPNETCORE_ENVIRONMENT: "Development"
       DOTNET_USE_POLLING_FILE_WATCHER: "true"
     image: "autodealer:dev"
     ports: []
     volumes:
-    - "C:\\Users\\Константин\\.nuget\\packages:/home/app/.nuget/packages"
     - "D:\\Проекты VS\\RestApi\\Autodealer:/app:rw"
     - "D:\\Проекты VS\\RestApi:/src:rw"
+    - "C:\\Users\\Константин\\.nuget\\packages:/home/app/.nuget/packages"
+    working_dir: "/app"
+  usercore:
+    build:
+      context: "D:\\Проекты VS\\RestApi"
+      dockerfile: "UserCore/Dockerfile"
+      target: "base"
+    command: []
+    entrypoint:
+    - "dotnet"
+    - "/app/bin/Debug/net8.0/UserCore.dll"
+    environment:
+      DOTNET_USE_POLLING_FILE_WATCHER: "true"
+    image: "usercore:dev"
+    ports: []
+    volumes:
+    - "D:\\Проекты VS\\RestApi\\UserCore:/app:rw"
+    - "D:\\Проекты VS\\RestApi:/src:rw"
+    - "C:\\Users\\Константин\\.nuget\\packages:/home/app/.nuget/packages"
     working_dir: "/app"

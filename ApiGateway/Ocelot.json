@@ -1,23 +1,31 @@
 {
   "GlobalConfiguration": {
-    "BaseUrl": "http://localhost:5065"
+    "BaseUrl": "http://localhost:9093"
   },
   "Routes": [
     {
       "UpstreamPathTemplate": "/Cars",
-      "UpstreamHttpMethod": ["Delete"],
+      "UpstreamHttpMethod": ["GET", "POST", "PUT", "DELETE"],
       "DownstreamPathTemplate": "/Cars",
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts":[
         {
           "Host": "localhost",
-          "Port": "5239"
+          "Port": 9090
         }
-      ],
-      "AuthenticationOptions":{
-        "AuthenticationProviderKey": ["Bearer"],
-        "AllowedScopes": []
-      }
+      ]
+    },
+    {
+      "UpstreamPathTemplate": "/Cars/{id}",
+      "UpstreamHttpMethod": ["GET", "DELETE"],
+      "DownstreamPathTemplate": "/Cars/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 9090
+        }
+      ]
     },
     {
       "UpstreamPathTemplate": "/login",
@@ -27,7 +35,7 @@
       "DownstreamHostAndPorts":[
         {
           "Host": "localhost",
-          "Port": "5114"
+          "Port": 9091
         }
       ]
     }

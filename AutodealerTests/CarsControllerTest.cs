@@ -11,14 +11,16 @@ namespace AutodealerTests;
 public class CarsControllerTest
 {
     private readonly Mock<ICarService> _carServiceMock;
-    private readonly Mock<IRedisCacheService> _cache;
+    private readonly Mock<IRedisCacheService> _cacheServiceMock;
+    private readonly Mock<ProducerService> _producerServiceMock;
     private readonly CarsController _controller;
-
+    
     public CarsControllerTest()
     {
         _carServiceMock = new Mock<ICarService>();
-        _cache = new Mock<IRedisCacheService>();
-        _controller = new CarsController(_carServiceMock.Object, _cache.Object);
+        _cacheServiceMock = new Mock<IRedisCacheService>();
+        _producerServiceMock = new Mock<ProducerService>();
+        _controller = new CarsController(_carServiceMock.Object, _cacheServiceMock.Object, _producerServiceMock.Object);
     }
 
     [Fact]

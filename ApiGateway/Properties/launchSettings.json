@@ -9,12 +9,21 @@
     }
   },
   "profiles": {
+    "ApiGateway": {
+      "commandName": "Project",
+      "dotnetRunMessages": true,
+      "launchBrowser": true,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "applicationUrl": "http://localhost:9093"
+    },
     "http": {
       "commandName": "Project",
       "dotnetRunMessages": true,
       "launchBrowser": true,
       "launchUrl": "swagger",
-      "applicationUrl": "http://localhost:5065",
+      "applicationUrl": "http://localhost:9093",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }

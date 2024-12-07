@@ -2,7 +2,6 @@ using Autodealer.Dto;
 using Autodealer.Entities;
 using Autodealer.Services;
 using Autodealer.Services.Caching;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Autodealer.Controllers;
@@ -16,12 +15,7 @@ public class CarsController(ICarService carService, IRedisCacheService cache, Pr
     {
         try
         {
-            var cachingKey = "cars_";
-            var cars = cache.GetData<IEnumerable<Car>>(cachingKey);
-            if (cars is not null) 
-                return Ok(cars);
-            cars = await carService.GetAll();
-            cache.SetData(cachingKey, cars);
+            var cars = await carService.GetAll();
 
             return Ok(cars);
         }
@@ -52,22 +46,22 @@ public class CarsController(ICarService carService, IRedisCacheService cache, Pr
     }
 
     [HttpPost]
-    [Authorize]
+    //[Authorize]
     public async Task<IActionResult> Create(CarDto car)
     {
         var createdAuto = await carService.Create(car);
-        cache.Delete<Car>("cars_");
+        //cache.Delete<Car>("cars_");
         return CreatedAtAction(nameof(GetById), new { id = createdAuto.Id }, createdAuto);
     }
 
     [HttpPut]
-    [Authorize]
+    //[Authorize]
     public async Task<IActionResult> Update(Car car)
     {
         try
         {
             await carService.Update(car);
-            cache.Delete<Car>("cars_");
+            //cache.Delete<Car>("cars_");
             cache.SetData($"carsById{car.Id}", car);
         }
         catch
@@ -78,19 +72,19 @@ public class CarsController(ICarService carService, IRedisCacheService cache, Pr
     }
 
     [HttpDelete("{id}")]
-    [Authorize]
+    //[Authorize]
     public async Task<IActionResult> Delete(string id)
     {
-        /*try
+        try
         {
             await carService.Delete(id);
-            cache.Delete<Car>("cars_");
+            //cache.Delete<Car>("cars_");
             cache.Delete<Car>($"carsById{id}");
         }
         catch
         {
             return NotFound();
-        }*/
+        }
         return Ok();
     }
 

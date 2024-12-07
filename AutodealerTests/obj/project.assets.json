@@ -7443,23 +7443,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\kosty\\.nuget\\packages\\": {},
+    "C:\\Users\\Константин\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\kosty\\RiderProjects\\Autodealer\\AutodealerTests\\AutodealerTests.csproj",
+      "projectUniqueName": "D:\\Проекты VS\\RestApi\\AutodealerTests\\AutodealerTests.csproj",
       "projectName": "AutodealerTests",
-      "projectPath": "C:\\Users\\kosty\\RiderProjects\\Autodealer\\AutodealerTests\\AutodealerTests.csproj",
-      "packagesPath": "C:\\Users\\kosty\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\kosty\\RiderProjects\\Autodealer\\AutodealerTests\\obj\\",
+      "projectPath": "D:\\Проекты VS\\RestApi\\AutodealerTests\\AutodealerTests.csproj",
+      "packagesPath": "C:\\Users\\Константин\\.nuget\\packages\\",
+      "outputPath": "D:\\Проекты VS\\RestApi\\AutodealerTests\\obj\\",
       "projectStyle": "PackageReference",
+      "UsingMicrosoftNETSdk": false,
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\kosty\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Константин\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -7475,8 +7476,8 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "C:\\Users\\kosty\\RiderProjects\\Autodealer\\Autodealer\\Autodealer.csproj": {
-              "projectPath": "C:\\Users\\kosty\\RiderProjects\\Autodealer\\Autodealer\\Autodealer.csproj"
+            "D:\\Проекты VS\\RestApi\\Autodealer\\Autodealer.csproj": {
+              "projectPath": "D:\\Проекты VS\\RestApi\\Autodealer\\Autodealer.csproj"
             }
           }
         }
@@ -7485,6 +7486,11 @@
         "warnAsError": [
           "NU1605"
         ]
+      },
+      "restoreAuditProperties": {
+        "enableAudit": "true",
+        "auditLevel": "low",
+        "auditMode": "direct"
       }
     },
     "frameworks": {
@@ -7532,7 +7538,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.303/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.404/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

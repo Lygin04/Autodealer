@@ -4,19 +4,15 @@ namespace Autodealer.Data;
 
 public class MongoDbService
 {
-    private readonly IConfiguration _configuration;
-    private readonly IMongoDatabase _database;
-
     public MongoDbService(IConfiguration configuration)
     {
-        _configuration = configuration;
-
-        var connectionString = _configuration.GetConnectionString("DbConnection");
+        var connectionString = configuration.GetConnectionString("MongoDB");
         var mongoUrl = MongoUrl.Create(connectionString);
         var mongoClient = new MongoClient(mongoUrl);
-        _database = mongoClient.GetDatabase(mongoUrl.DatabaseName);
-
+        Console.WriteLine(mongoUrl.DatabaseName);
+        Console.WriteLine(mongoUrl);
+        Database = mongoClient.GetDatabase(mongoUrl.DatabaseName);
     }
 
-    public IMongoDatabase Database => _database;
+    public IMongoDatabase Database { get; }
 }
