@@ -1,5 +1,4 @@
 using UserCore.DTOs;
-using UserCore.Entities;
 
 namespace UserCore.Services;
 

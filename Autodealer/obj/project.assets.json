@@ -1854,24 +1854,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Константин\\.nuget\\packages\\": {},
+    "C:\\Users\\kosty\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Проекты VS\\RestApi\\Autodealer\\Autodealer.csproj",
+      "projectUniqueName": "C:\\Users\\kosty\\RiderProjects\\Autodealer\\Autodealer\\Autodealer.csproj",
       "projectName": "Autodealer",
-      "projectPath": "D:\\Проекты VS\\RestApi\\Autodealer\\Autodealer.csproj",
-      "packagesPath": "C:\\Users\\Константин\\.nuget\\packages\\",
-      "outputPath": "D:\\Проекты VS\\RestApi\\Autodealer\\obj\\",
+      "projectPath": "C:\\Users\\kosty\\RiderProjects\\Autodealer\\Autodealer\\Autodealer.csproj",
+      "packagesPath": "C:\\Users\\kosty\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\kosty\\RiderProjects\\Autodealer\\Autodealer\\obj\\",
       "projectStyle": "PackageReference",
-      "UsingMicrosoftNETSdk": false,
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\Константин\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\kosty\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -1893,11 +1892,6 @@
         "warnAsError": [
           "NU1605"
         ]
-      },
-      "restoreAuditProperties": {
-        "enableAudit": "true",
-        "auditLevel": "low",
-        "auditMode": "direct"
       }
     },
     "frameworks": {
@@ -1948,7 +1942,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.404/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.303/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

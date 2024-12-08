@@ -1,8 +1,6 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using UserCore.DTOs;
-using UserCore.Enums;
-using UserCore.Infrastructure;
 using UserCore.Services;
 
 namespace UserCore.Controllers;
@@ -39,12 +37,4 @@ public class UserController(IUserService service) : ControllerBase
             return BadRequest(ex.Message);
         }
     }
-
-    [HttpGet("/admin")]
-    [RequirePermission(Permission.Read)]
-    public IActionResult User()
-    {
-        return Ok("Hi, User");
-    }
-    
 }

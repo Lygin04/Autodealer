@@ -1,21 +1,11 @@
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Options;
-using UserCore.Configurations;
 using UserCore.Entities;
-using UserCore.Repositories;
 
 namespace UserCore.Data;
 
-public class DataContext(DbContextOptions<DataContext> options,
-    IOptions<AuthorizationOptions> authOptions) : DbContext(options)
+public class DataContext : DbContext
 {
-    public DbSet<UserEntity> Users { get; set; }
-    public DbSet<RoleEntity> Roles { get; set; }
+    public DataContext(DbContextOptions<DataContext> options) : base(options) { }
 
-    protected override void OnModelCreating(ModelBuilder modelBuilder)
-    {
-        modelBuilder.ApplyConfigurationsFromAssembly(typeof(DataContext).Assembly);
-
-        modelBuilder.ApplyConfiguration(new RolePermissionConfiguration(authOptions.Value));
-    }
+    public DbSet<User> Users { get; set; }
 }

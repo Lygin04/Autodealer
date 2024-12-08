@@ -1,9 +1,7 @@
 using UserCore.DTOs;
 using UserCore.Entities;
-using UserCore.Infrastructure;
 using UserCore.Interfaces.Auth;
 using UserCore.Interfaces.Repositories;
-using UserCore.Repositories;
 
 namespace UserCore.Services;
 
@@ -15,8 +13,16 @@ public class UserService(
     public async Task Register(RegisterDto registerDto)
     {
         var hashedPassword = passwordHasher.Generate(registerDto.Password);
-        registerDto.Password = hashedPassword;
-        await userRepository.Add(registerDto);
+        
+        User user = new User
+        {
+            Email = registerDto.Email,
+            Password = hashedPassword,
+            Name = registerDto.Name,
+            Phone = registerDto.Phone
+        };
+
+        await userRepository.Add(user);
     }
 
     public async Task<string> Login(LoginDto login)
