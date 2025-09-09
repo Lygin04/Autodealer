@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiGateway", "ApiGateway\Ap
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserCore", "UserCore\UserCore.csproj", "{1A913760-7E60-4080-9429-A8E2381BEEE7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IntegrationTest", "IntegrationTest\IntegrationTest.csproj", "{44D31B57-DF2E-4B66-ABFC-B6DFA0D66037}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -35,5 +37,9 @@ Global
 		{1A913760-7E60-4080-9429-A8E2381BEEE7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1A913760-7E60-4080-9429-A8E2381BEEE7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1A913760-7E60-4080-9429-A8E2381BEEE7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{44D31B57-DF2E-4B66-ABFC-B6DFA0D66037}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{44D31B57-DF2E-4B66-ABFC-B6DFA0D66037}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{44D31B57-DF2E-4B66-ABFC-B6DFA0D66037}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{44D31B57-DF2E-4B66-ABFC-B6DFA0D66037}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

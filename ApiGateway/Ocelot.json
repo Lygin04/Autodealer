@@ -1,31 +1,62 @@
 {
   "GlobalConfiguration": {
-    "BaseUrl": "http://localhost:9093"
+    "BaseUrl": "http://localhost:8080"
   },
   "Routes": [
     {
       "UpstreamPathTemplate": "/Cars",
-      "UpstreamHttpMethod": ["GET", "POST", "PUT", "DELETE"],
+      "UpstreamHttpMethod": ["GET"],
       "DownstreamPathTemplate": "/Cars",
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts":[
         {
-          "Host": "localhost",
+          "Host": "autodealer",
+          "Port": 9090
+        }
+      ]
+    },
+    {
+      "UpstreamPathTemplate": "/Cars",
+      "UpstreamHttpMethod": ["POST", "PUT", "DELETE"],
+      "DownstreamPathTemplate": "/Cars",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts":[
+        {
+          "Host": "autodealer",
+          "Port": 9090
+        }
+      ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
+    },
+    {
+      "UpstreamPathTemplate": "/Cars/{id}",
+      "UpstreamHttpMethod": ["GET"],
+      "DownstreamPathTemplate": "/Cars/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "autodealer",
           "Port": 9090
         }
       ]
     },
     {
       "UpstreamPathTemplate": "/Cars/{id}",
-      "UpstreamHttpMethod": ["GET", "DELETE"],
+      "UpstreamHttpMethod": ["DELETE"],
       "DownstreamPathTemplate": "/Cars/{id}",
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "localhost",
+          "Host": "autodealer",
           "Port": 9090
         }
-      ]
+      ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer"
+      }
     },
     {
       "UpstreamPathTemplate": "/login",
@@ -34,8 +65,32 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts":[
         {
-          "Host": "localhost",
+          "Host": "usercore",
           "Port": 9091
+        }
+      ]
+    },
+    {
+      "UpstreamPathTemplate": "/register",
+      "UpstreamHttpMethod": ["Post"],
+      "DownstreamPathTemplate": "/register",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts":[
+        {
+          "Host": "usercore",
+          "Port": 9091
+        }
+      ]
+    },
+    {
+      "UpstreamPathTemplate": "/health",
+      "UpstreamHttpMethod": [ "GET" ],
+      "DownstreamPathTemplate": "/health",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "apigateway",
+          "Port": 8080
         }
       ]
     }

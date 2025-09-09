@@ -5,9 +5,11 @@
     ports:
       - "6379:6379"
     command: ["redis-server", "--appendonly", "yes"]
+    networks:
+      - autodealer
         
   zookeeper:
-    image: confluentinc/cp-zookeeper
+    image: confluentinc/cp-zookeeper:7.2.2
     container_name: zookeeper
     ports:
       - 2181:2181
@@ -18,7 +20,7 @@
       - kafka
 
   kafka:
-    image: confluentinc/cp-kafka
+    image: confluentinc/cp-kafka:7.2.2
     container_name: kafka
     ports:
       - 9092:9092
@@ -73,7 +75,7 @@
       context: .
       dockerfile: ApiGateway/Dockerfile
     ports:
-      - "9093:9093"
+      - "8080:8080"
     networks:
       - autodealer
     depends_on:
@@ -81,12 +83,13 @@
       - autodealer
     environment:
       ASPNETCORE_ENVIRONMENT: Development
-      ASPNETCORE_URLS: "http://+:9093"
-        
+      ASPNETCORE_URLS: http://+:8080  
+  
   postgres_user:
     image: postgres
+    restart: always
     environment:
-      POSTGRES_USER: postgres
+      POSTGRES_USER: root
       POSTGRES_PASSWORD: admin
       POSTGRES_DB: Autodealer
     ports:
@@ -94,7 +97,7 @@
     networks:
       - autodealer
     volumes:
-      - postgres_data:/var/lib/postresql/data
+      - postgres_data:/var/lib/postgresql/data
         
   mongo:
     image: mongo

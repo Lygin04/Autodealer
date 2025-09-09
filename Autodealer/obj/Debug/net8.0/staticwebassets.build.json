@@ -1,11 +1,1 @@
-{
-  "Version": 1,
-  "Hash": "+zB4ht7p1jhmySeRl0sVucjW8r3wNGBCIPUlPCEPMfQ=",
-  "Source": "Autodealer",
-  "BasePath": "_content/Autodealer",
-  "Mode": "Default",
-  "ManifestType": "Build",
-  "ReferencedProjectsConfiguration": [],
-  "DiscoveryPatterns": [],
-  "Assets": []
-}
+{"Version":1,"Hash":"6M9UKK/CBeGop8HwxgkL47d6K/4f98mn6JncJJ+4nsg=","Source":"Autodealer","BasePath":"_content/Autodealer","Mode":"Default","ManifestType":"Build","ReferencedProjectsConfiguration":[],"DiscoveryPatterns":[],"Assets":[],"Endpoints":[]}
