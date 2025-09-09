@@ -11,19 +11,19 @@
 
     <ItemGroup>
         <PackageReference Include="coverlet.collector" Version="6.0.0"/>
+        <PackageReference Include="Microsoft.AspNetCore.Mvc.Testing" Version="8.0.11" />
         <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.8.0"/>
-        <PackageReference Include="Moq" Version="4.20.72" />
-        <PackageReference Include="Ocelot" Version="23.3.6" />
-        <PackageReference Include="StackExchange.Redis" Version="2.8.16" />
-        <PackageReference Include="xunit" Version="2.5.3"/>
-        <PackageReference Include="xunit.runner.visualstudio" Version="2.5.3"/>
+        <PackageReference Include="NUnit" Version="3.14.0"/>
+        <PackageReference Include="NUnit.Analyzers" Version="3.9.0"/>
+        <PackageReference Include="NUnit3TestAdapter" Version="4.5.0"/>
     </ItemGroup>
 
     <ItemGroup>
-        <Using Include="Xunit"/>
+        <Using Include="NUnit.Framework"/>
     </ItemGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\ApiGateway\ApiGateway.csproj" />
       <ProjectReference Include="..\Autodealer\Autodealer.csproj" />
     </ItemGroup>
 
