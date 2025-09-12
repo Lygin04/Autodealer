@@ -14,7 +14,7 @@ public class UserService(
     {
         var hashedPassword = passwordHasher.Generate(registerDto.Password);
         
-        User user = new User
+        var user = new User
         {
             Email = registerDto.Email,
             Password = hashedPassword,
