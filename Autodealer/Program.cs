@@ -3,6 +3,10 @@ using Autodealer.Data;
 using Autodealer.Services;
 using Autodealer.Services.Caching;
 using Microsoft.IdentityModel.Tokens;
+using OpenTelemetry;
+using OpenTelemetry.Metrics;
+using OpenTelemetry.Resources;
+using OpenTelemetry.Trace;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -37,6 +41,33 @@ builder.Services.AddSingleton<ProducerService>();
 builder.Services.AddScoped<ICarService, CarService>();
 builder.Services.AddScoped<IRedisCacheService, RedisCacheService>();
 
+var resourceBuilder = ResourceBuilder.CreateDefault()
+    .AddService(serviceName: "Autodealer", serviceVersion: "1.0.0");
+
+builder.Services.AddOpenTelemetry()
+    .ConfigureResource(r => r.AddService("Autodealer"))
+    .WithMetrics(meterProviderBuilder =>
+    {
+        meterProviderBuilder
+            .SetResourceBuilder(resourceBuilder)
+            .AddAspNetCoreInstrumentation()
+            .AddHttpClientInstrumentation()
+            .AddPrometheusExporter();
+    })
+    .WithTracing(tracerProviderBuilder =>
+    {
+        tracerProviderBuilder
+            .AddAspNetCoreInstrumentation()
+            .AddHttpClientInstrumentation()
+            //.AddOtlpExporter()
+            .AddJaegerExporter(o =>
+            {
+                o.AgentHost = builder.Configuration["JAEGER_HOST"] ?? "jaeger";
+                o.AgentPort = 6831;
+            });
+    })
+    .UseOtlpExporter();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -47,9 +78,12 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+app.UseRouting();
 
 app.UseAuthentication();
 app.UseAuthorization();
+
+app.MapPrometheusScrapingEndpoint();
 
 app.MapControllers();
 
