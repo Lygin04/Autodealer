@@ -21,7 +21,7 @@ public static class ApiExtensions
                     ValidateIssuer = false,
                     ValidateLifetime = true,
                     ValidateIssuerSigningKey = true,
-                    IssuerSigningKeys = [new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtOptions!.Value.SecretKey))]
+                    IssuerSigningKeys = [new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtOptions.Value.SecretKey))]
                 };
 
                 opt.Events = new JwtBearerEvents

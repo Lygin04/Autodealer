@@ -11,16 +11,14 @@ namespace AutodealerTests;
 public class CarsControllerTest
 {
     private readonly Mock<ICarService> _carServiceMock;
-    private readonly Mock<IRedisCacheService> _cacheServiceMock;
-    private readonly Mock<ProducerService> _producerServiceMock;
     private readonly CarsController _controller;
     
     public CarsControllerTest()
     {
         _carServiceMock = new Mock<ICarService>();
-        _cacheServiceMock = new Mock<IRedisCacheService>();
-        _producerServiceMock = new Mock<ProducerService>();
-        _controller = new CarsController(_carServiceMock.Object, _cacheServiceMock.Object, _producerServiceMock.Object);
+        var cacheServiceMock = new Mock<IRedisCacheService>();
+        var producerServiceMock = new Mock<ProducerService>();
+        _controller = new CarsController(_carServiceMock.Object, cacheServiceMock.Object, producerServiceMock.Object);
     }
 
     [Fact]
@@ -29,7 +27,7 @@ public class CarsControllerTest
         var cars = new List<CarDto>();
         const int countCars = 100;
 
-        for (int i = 0; i < countCars; i++)
+        for (var i = 0; i < countCars; i++)
         {
             cars.Add(new CarDto {Brand = $"Lada{i}", Model = "Granta", Generation = i.ToString(), Engine = "1.4"});
         }
@@ -54,7 +52,7 @@ public class CarsControllerTest
         var cars = new List<CarDto>();
         const int countCars = 100000;
 
-        for (int i = 0; i < countCars; i++)
+        for (var i = 0; i < countCars; i++)
         {
             cars.Add(new CarDto {Brand = $"Lada{i}", Model = "Granta", Generation = i.ToString(), Engine = "1.4"});
         }
@@ -78,7 +76,7 @@ public class CarsControllerTest
     {
         var cars = (await _controller.GetAll()).Value as List<Car>;
 
-        foreach (var car in cars)
+        foreach (var car in cars!)
         {
             var result = await _controller.Delete(car.Id);
             Assert.IsType<OkResult>(result);
