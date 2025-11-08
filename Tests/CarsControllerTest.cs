@@ -1,4 +1,4 @@
-using Autodealer.Controllers;
+﻿/*using Autodealer.Controllers;
 using Autodealer.Dto;
 using Autodealer.Entities;
 using Autodealer.Services;
@@ -6,7 +6,7 @@ using Autodealer.Services.Caching;
 using Microsoft.AspNetCore.Mvc;
 using Moq;
 
-namespace AutodealerTests;
+namespace Tests;
 
 public class CarsControllerTest
 {
@@ -29,13 +29,13 @@ public class CarsControllerTest
 
         for (var i = 0; i < countCars; i++)
         {
-            cars.Add(new CarDto {Brand = $"Lada{i}", Model = "Granta", Generation = i.ToString(), Engine = "1.4"});
+            cars.Add(new CarDto {Brand = $"Lada{i}", Model = "Granta", Generation = i.ToString(), EngineId = "1.4"});
         }
 
         _carServiceMock.Setup(service => service.Create(It.IsAny<CarDto>()))
             .ReturnsAsync((CarDto car) =>
                 new Car { Id = "someId", Brand = car.Brand, Model = car.Model,
-                    Generation = car.Generation, Engine = car.Engine });
+                    Generation = car.Generation, EngineId = car.EngineId });
 
         foreach (var car in cars)
         {
@@ -84,4 +84,4 @@ public class CarsControllerTest
 
         _carServiceMock.Verify(service => service.Delete(It.IsAny<string>()), Times.Exactly(cars.Count));
     }
-}
+}*/

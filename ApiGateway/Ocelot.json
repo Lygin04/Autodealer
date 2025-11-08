@@ -1,6 +1,6 @@
 {
   "GlobalConfiguration": {
-    "BaseUrl": "http://localhost:8080"
+    "BaseUrl": "http://host.docker.internal:8080"
   },
   "Routes": [
     {
@@ -10,8 +10,8 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts":[
         {
-          "Host": "autodealer",
-          "Port": 9090
+          "Host": "host.docker.internal",
+          "Port": 8081
         }
       ]
     },
@@ -22,8 +22,8 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts":[
         {
-          "Host": "autodealer",
-          "Port": 9090
+          "Host": "host.docker.internal",
+          "Port": 8081
         }
       ],
       "AuthenticationOptions": {
@@ -38,8 +38,8 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "autodealer",
-          "Port": 9090
+          "Host": "host.docker.internal",
+          "Port": 8081
         }
       ]
     },
@@ -50,8 +50,8 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "autodealer",
-          "Port": 9090
+          "Host": "host.docker.internal",
+          "Port": 8081
         }
       ],
       "AuthenticationOptions": {
@@ -65,8 +65,8 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts":[
         {
-          "Host": "usercore",
-          "Port": 9091
+          "Host": "host.docker.internal",
+          "Port": 8082
         }
       ]
     },
@@ -77,8 +77,8 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts":[
         {
-          "Host": "usercore",
-          "Port": 9091
+          "Host": "host.docker.internal",
+          "Port": 8082
         }
       ]
     },
@@ -89,7 +89,7 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "apigateway",
+          "Host": "host.docker.internal",
           "Port": 8080
         }
       ]

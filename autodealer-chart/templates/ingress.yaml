@@ -1,0 +1,37 @@
+﻿{{- if .Values.ingress.enabled }}
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: autodealer-ingress
+  namespace: {{ .Values.namespace }}
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    #nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: {{ .Values.ingress.host }}
+      http:
+        paths:
+          - path: /api
+            pathType: Prefix
+            backend:
+              service:
+                name: apigateway
+                port:
+                  number: 80
+          - path: /autodealer
+            pathType: Prefix
+            backend:
+              service:
+                name: autodealer
+                port:
+                  number: 80
+          - path: /usercore
+            pathType: Prefix
+            backend:
+              service:
+                name: usercore
+                port:
+                  number: 80
+{{- end }}

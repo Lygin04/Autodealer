@@ -16,7 +16,7 @@
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       },
-      "applicationUrl": "http://localhost:9090"
+      "applicationUrl": "http://localhost:8081"
     },
     "http": {
       "commandName": "Project",

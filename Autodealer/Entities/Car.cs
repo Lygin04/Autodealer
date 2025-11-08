@@ -29,6 +29,6 @@ public class Car
     /// <summary>
     /// Двигатель.
     /// </summary>
-    [BsonElement("engine"), BsonRepresentation(BsonType.String)]
-    public string Engine { get; set; }
+    [BsonElement("engine_id"), BsonRepresentation(BsonType.ObjectId)]
+    public string EngineId { get; set; }
 }
