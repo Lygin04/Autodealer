@@ -1,0 +1,40 @@
+﻿{{/*apiVersion: apps/v1*/}}
+{{/*kind: Deployment*/}}
+{{/*metadata:*/}}
+{{/*  name: autodealer*/}}
+{{/*  namespace: {{ .Values.namespace }}*/}}
+{{/*spec:*/}}
+{{/*  replicas: {{ .Values.replicas.autodealer }}*/}}
+{{/*  selector:*/}}
+{{/*    matchLabels:*/}}
+{{/*      app: autodealer*/}}
+{{/*  template:*/}}
+{{/*    metadata:*/}}
+{{/*      labels:*/}}
+{{/*        app: autodealer*/}}
+{{/*    spec:*/}}
+{{/*      containers:*/}}
+{{/*        - name: autodealer*/}}
+{{/*          image: {{ .Values.images.autodealer }}*/}}
+{{/*          imagePullPolicy: IfNotPresent*/}}
+{{/*          env:*/}}
+{{/*            - name: ASPNETCORE_ENVIRONMENT*/}}
+{{/*              value: Development*/}}
+{{/*            - name: ASPNETCORE_URLS*/}}
+{{/*              value: "http://+:8081"*/}}
+{{/*          ports:*/}}
+{{/*            - containerPort: 8081*/}}
+{{/*---*/}}
+{{/*apiVersion: v1*/}}
+{{/*kind: Service*/}}
+{{/*metadata:*/}}
+{{/*  name: autodealer*/}}
+{{/*  namespace: {{ .Values.namespace }}*/}}
+{{/*spec:*/}}
+{{/*  ports:*/}}
+{{/*    - port: 80*/}}
+{{/*      targetPort: 8081*/}}
+{{/*      protocol: TCP*/}}
+{{/*  selector:*/}}
+{{/*    app: autodealer*/}}
+{{/*  type: ClusterIP*/}}

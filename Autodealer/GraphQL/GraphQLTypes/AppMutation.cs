@@ -9,7 +9,7 @@ namespace Autodealer.GraphQL.GraphQLTypes;
 
 public sealed class AppMutation : ObjectGraphType
 {
-    public AppMutation(ICarRepository carRepository)
+    public AppMutation(ICarRepository carRepository, IEngineRepository engineRepository)
     {
         Name = "Mutation";
 
@@ -18,23 +18,26 @@ public sealed class AppMutation : ObjectGraphType
             Name = "createCar",
             Type = typeof(CarType),
             Arguments = new QueryArguments(
-                new QueryArgument<NonNullGraphType<StringGraphType>> { Name = "brand" },
-                new QueryArgument<NonNullGraphType<StringGraphType>> { Name = "model" },
-                new QueryArgument<NonNullGraphType<StringGraphType>> { Name = "generation" },
-                new QueryArgument<NonNullGraphType<StringGraphType>> { Name = "engine" }),
+                new QueryArgument<NonNullGraphType<CarInputType>> { Name = "car"}),
             Resolver = new FuncFieldResolver<Car>(context =>
             {
-                var brand = context.GetArgument<string>("brand");
-                var model = context.GetArgument<string>("model");
-                var generation = context.GetArgument<string>("generation");
-                var engine = context.GetArgument<string>("engine");
+                var carInput = context.GetArgument<CarMutationDto>("car");
+                var engine = new EngineDto
+                {
+                    Brand = carInput.Engine.Brand,
+                    Model = carInput.Engine.Model,
+                    Capacity = carInput.Engine.Capacity,
+                    CountBlock = carInput.Engine.CountBlock,
+                };
 
+                var engineId = engineRepository.Create(engine).Result.Id;
+                
                 var carDto = new CarDto
                 {
-                    Brand = brand,
-                    Model = model,
-                    Generation = generation,
-                    Engine = engine
+                    Brand = carInput.Brand,
+                    Model = carInput.Model,
+                    Generation = carInput.Generation,
+                    EngineId = engineId
                 };
 
                 var car = carRepository.Create(carDto);
@@ -51,7 +54,7 @@ public sealed class AppMutation : ObjectGraphType
                 new QueryArgument<StringGraphType> { Name = "brand" },
                 new QueryArgument<StringGraphType> { Name = "model" },
                 new QueryArgument<StringGraphType> { Name = "generation" },
-                new QueryArgument<StringGraphType> { Name = "engine" }),
+                new QueryArgument<StringGraphType> { Name = "engineId" }),
             Resolver = new FuncFieldResolver<Car>(context =>
             {
                 var id = context.GetArgument<string>("id");
@@ -61,11 +64,19 @@ public sealed class AppMutation : ObjectGraphType
                 {
                     context.Errors.Add(new ExecutionError("Car not found"));
                 }
+
+                var engineId = context.GetArgument<string>("engineId");
+
+                if (!string.IsNullOrEmpty(engineId))
+                {
+                    var engine = engineRepository.GetById(engineId);
+                    if (engine != null)
+                        car.EngineId = engineId;
+                }
                 
                 var brand = context.GetArgument<string>("brand");
                 var model = context.GetArgument<string>("model");
                 var generation = context.GetArgument<string>("generation");
-                var engine = context.GetArgument<string>("engine");
                 
                 if(!string.IsNullOrEmpty(brand))
                     car.Brand = brand;
@@ -76,8 +87,10 @@ public sealed class AppMutation : ObjectGraphType
                 if(!string.IsNullOrEmpty(generation))
                     car.Generation = generation;
                 
-                if(!string.IsNullOrEmpty(engine))
-                    car.Engine = engine;
+                if(!string.IsNullOrEmpty(engineId))
+                    car.EngineId = engineId;
+
+                carRepository.Update(car);
 
                 return car;
             })

@@ -1,0 +1,16 @@
+﻿namespace: autodealer
+
+replicas:
+  autodealer: 3
+  usercore: 2
+
+ingress:
+  enabled: true
+  host: autodealer.local
+
+images:
+  autodealer: frezgg/autodealer:lastest
+  usercore: frezgg/usercore:lastest
+  #apigateway: frezgg/apigateway:lastest
+
+resources: {}

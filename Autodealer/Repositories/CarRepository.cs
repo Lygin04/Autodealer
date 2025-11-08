@@ -29,7 +29,7 @@ public class CarRepository(MongoDbService mongoDbService) : ICarRepository
             Brand = newCarDto.Brand,
             Model = newCarDto.Model,
             Generation = newCarDto.Generation,
-            Engine = newCarDto.Engine
+            EngineId = newCarDto.EngineId
         };
         await _cars.InsertOneAsync(car);
         return car;
@@ -42,7 +42,7 @@ public class CarRepository(MongoDbService mongoDbService) : ICarRepository
             .Set(x => x.Brand, newCar.Brand)
             .Set(x => x.Model, newCar.Model)
             .Set(x => x.Generation, newCar.Generation)
-            .Set(x => x.Engine, newCar.Engine);
+            .Set(x => x.EngineId, newCar.EngineId);
 
         await _cars.UpdateOneAsync(filter, update);
     }

@@ -1,0 +1,55 @@
+﻿{{- /* AUTODEALER */ -}}
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: autodealer
+  namespace: {{ .Values.namespace }}
+spec:
+  replicas: {{ .Values.replicas.autodealer }}
+  selector:
+    matchLabels:
+      app: autodealer
+  template:
+    metadata:
+      labels:
+        app: autodealer
+    spec:
+      containers:
+        - name: autodealer
+          image: {{ .Values.images.autodealer }}
+          imagePullPolicy: IfNotPresent
+          env:
+            - name: ASPNETCORE_ENVIRONMENT
+              value: Development
+            - name: ASPNETCORE_URLS
+              value: "http://+:8081"
+          ports:
+            - containerPort: 8081
+---
+{{- /* USERCORE */ -}}
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: usercore
+  namespace: {{ .Values.namespace }}
+spec:
+  replicas: {{ .Values.replicas.usercore }}
+  selector:
+    matchLabels:
+      app: usercore
+  template:
+    metadata:
+      labels:
+        app: usercore
+    spec:
+      containers:
+        - name: usercore
+          image: {{ .Values.images.usercore }}
+          imagePullPolicy: IfNotPresent
+          env:
+            - name: ASPNETCORE_ENVIRONMENT
+              value: Development
+            - name: ASPNETCORE_URLS
+              value: "http://+:8082"
+          ports:
+            - containerPort: 8082

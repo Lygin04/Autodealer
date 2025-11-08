@@ -78,7 +78,7 @@
       "title": "Jaeger Traces",
       "gridPos": {"x":12,"y":6,"w":12,"h":2},
       "mode": "markdown",
-      "content": "[View Traces in Jaeger](http://jaeger:16686/search)"
+      "content": "[View Traces in Jaeger](http://host.docker.internal:16686/search)"
     }
   ]
 }

@@ -40,6 +40,7 @@ builder.Services.AddAuthentication("Bearer")
 builder.Services.AddSingleton<MongoDbService>();
 builder.Services.AddSingleton<ProducerService>();
 builder.Services.AddTransient<ICarRepository, CarRepository>();
+builder.Services.AddTransient<IEngineRepository, EngineRepository>();
 builder.Services.AddTransient<ICarService, CarService>();
 builder.Services.AddTransient<IRedisCacheService, RedisCacheService>();
 
@@ -92,7 +93,7 @@ builder.Services.AddOpenTelemetry()
             //.AddOtlpExporter()
             .AddJaegerExporter(o =>
             {
-                o.AgentHost = builder.Configuration["JAEGER_HOST"] ?? "jaeger";
+                o.AgentHost = builder.Configuration["JAEGER_HOST"] ?? "host.docker.internal";
                 o.AgentPort = 6831;
             });
     })

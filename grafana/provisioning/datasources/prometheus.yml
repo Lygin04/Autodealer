@@ -3,14 +3,14 @@ datasources:
   - name: Prometheus
     type: prometheus
     access: proxy
-    url: http://prometheus:9090
+    url: http://host.docker.internal:9090
     isDefault: true
     editable: true
 
   - name: Jaeger
     type: jaeger
     access: proxy
-    url: http://jaeger:16686
+    url: http://host.docker.internal:16686
     isDefault: false
     jsonData:
       httpMode: GET

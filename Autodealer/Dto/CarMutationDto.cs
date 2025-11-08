@@ -1,6 +1,8 @@
+﻿using Autodealer.Entities;
+
 namespace Autodealer.Dto;
 
-public class CarDto
+public class CarMutationDto
 {
     /// <summary>
     /// Марка.
@@ -17,5 +19,5 @@ public class CarDto
     /// <summary>
     /// Двигатель.
     /// </summary>
-    public string EngineId { get; set; }
+    public Engine Engine { get; set; }
 }

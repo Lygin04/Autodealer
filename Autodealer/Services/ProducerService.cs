@@ -8,7 +8,7 @@ public class ProducerService(ILogger<ProducerService> logger)
     {
         var config = new ProducerConfig
         {
-            BootstrapServers = "localhost:9092",
+            BootstrapServers = "host.docker.internal:9092",
             AllowAutoCreateTopics = true,
             Acks = Acks.All
         };
